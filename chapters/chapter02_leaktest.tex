@@ -198,10 +198,27 @@ It would also be noted that the calculation of $\textrm{C}_{\textrm{Leak}}$ dire
 \subsection{Systematic Error}
 To estimate the systematic error in the estimation of $\textrm{C}_{\textrm{Leak}}$, one of the RPC gap is tested for a duration of 48 hours. Several data samples of equal duration have been generated from this large data sample and `$\textrm{C}_{\textrm{Leak}}$'s are estimated in each case. The Figure~\ref{fig:systematic}(a) shows the distribution of the estimated `$\textrm{C}_{\textrm{Leak}}$'s for data samples of the duration of 25 hours.
 \begin{figure}
-  \vspace*{-15pt}
+  %% \vspace*{-15pt}
   \centering
   \includegraphics[width=0.99\textwidth]{splitDataLeak.pdf}
   \caption{\textbf{(a)} Systematic error with data sets with length of 25 hours, \textbf{(b)} Variation of relative systematic error with length of data.}
   \label{fig:systematic}
 \end{figure}
 The relative systematic error for this case is 3.1\,\%. Now, the relative systematic error for the different durations of time is presented in the Figure~\ref{fig:systematic}(b). As expected, it can be observed that by lengthening the test duration, the relative systematic uncertainty in the measurement of $\textrm{C}_{\textrm{Leak}}$ decreases significantly.
+
+\subsection{Result of Tested RPC Gaps}
+The set-up and the procedures described in this chapter have been preliminary used to test eighty RPC gaps. The results of these tests are summarised in Figure~\ref{fig:conclusion}
+\begin{figure}[h]
+  %% \vspace*{-15pt}
+  \centering
+  \includegraphics[width=0.99\textwidth]{Leak_Conclusion.pdf}
+  \caption{\textbf{(a)} $x_T$ values of eighty RPC gaps, \textbf{(b)} $x_P$ values of eighty RPC gaps, \textbf{(c)} Correlation between minimised values of $x_T$ and $x_P$ for eighty RPC gaps, \textbf{(d)} $\textrm{C}_{\textrm{Leak}}$ of eighty RPC gaps with calculated values of $x_T$ and $x_P$, \textbf{(e)} $\textrm{C}_{\textrm{Leak}}$ of eighty RPC gaps with mean values of $x_T$ and $x_P$, \textbf{(f)} Correlation between $\textrm{C}_{\textrm{Leak}}$ obtained by both calculated and mean values of $x_T$ and $x_P$ for eighty RPC gaps.}
+  \label{fig:conclusion}
+\end{figure}
+and general findings are listed here.
+\begin{itemize} \itemsep -5pt
+\item The correction parameters depend on the structure of the RPC gaps. Values of $x_T$ and $x_P$ should be same for similar type of RPC gaps. Any gap with popped up button spacers(s) (`button pop-up' is discussed in Section \ref{sec:button}) will reflect higher values of these two parameters. This causes the spread in the Figure~\ref{fig:conclusion}(a) and \ref{fig:conclusion}(b).
+\item Since, minimised values of $x_T$ and $x_P$ for a gas gap are two independent parameters, it can be seen in Figure~\ref{fig:conclusion}(c) that there is no correlation between these two parameters for eighty RPC gaps which were tested.
+\item Figure~\ref{fig:conclusion}(d) shows the values of $\textrm{C}_{\textrm{Leak}}$ for eighty RPC gaps where the values of $x_T$ and $x_P$ are calculated explicitly for each RPC gaps. Figure~\ref{fig:conclusion}(e) shows the same but with the mean values of $x_T$ and $x_P$ obtained from \ref{fig:conclusion}(a) and \ref{fig:conclusion}(b).
+\item Figure~\ref{fig:conclusion}(f) shows correlation between $\textrm{C}_{\textrm{Leak}}$ obtained by both calculated chamber by chamber and mean $x_T$ and $x_P$ values. The nature of correlation is direct. So, mean values of $x_T$ and $x_P$ can also be used for a quick calculation saving CPU time.
+\end{itemize}
