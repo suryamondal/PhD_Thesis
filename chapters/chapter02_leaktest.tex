@@ -206,7 +206,7 @@ To estimate the systematic error in the estimation of $\textrm{C}_{\textrm{Leak}
 \end{figure}
 The relative systematic error for this case is 3.1\,\%. Now, the relative systematic error for the different durations of time is presented in the Figure~\ref{fig:systematic}(b). As expected, it can be observed that by lengthening the test duration, the relative systematic uncertainty in the measurement of $\textrm{C}_{\textrm{Leak}}$ decreases significantly.
 
-\subsection{Result of Tested RPC Gaps}
+\subsection{Result of the Tested RPC Gaps}
 The set-up and the procedures described in this chapter have been preliminary used to test eighty RPC gaps. The results of these tests are summarised in Figure~\ref{fig:conclusion}
 \begin{figure}[h]
   %% \vspace*{-15pt}
@@ -217,8 +217,13 @@ The set-up and the procedures described in this chapter have been preliminary us
 \end{figure}
 and general findings are listed here.
 \begin{itemize} \itemsep -3pt
-\item The correction parameters depend on the structure of the RPC gaps. Values of $x_T$ and $x_P$ should be same for similar type of RPC gaps. Any gap with popped up button spacers(s) (`button pop-up' is discussed in Section \ref{sec:button}) will reflect higher values of these two parameters. This causes the spread in the Figure~\ref{fig:conclusion}(a) and \ref{fig:conclusion}(b).
-\item Since, minimised values of $x_T$ and $x_P$ for a gas gap are two independent parameters, it can be seen in Figure~\ref{fig:conclusion}(c) that there is no correlation between these two parameters for eighty RPC gaps which were tested.
-\item Figure~\ref{fig:conclusion}(d) shows the values of $\textrm{C}_{\textrm{Leak}}$ for eighty RPC gaps where the values of $x_T$ and $x_P$ are calculated explicitly for each RPC gaps. Figure~\ref{fig:conclusion}(e) shows the same but with the mean values of $x_T$ and $x_P$ obtained from \ref{fig:conclusion}(a) and \ref{fig:conclusion}(b).
-\item Figure~\ref{fig:conclusion}(f) shows correlation between $\textrm{C}_{\textrm{Leak}}$ obtained by both calculated chamber by chamber and mean $x_T$ and $x_P$ values. The nature of correlation is direct. So, mean values of $x_T$ and $x_P$ can also be used for a quick calculation saving CPU time.
+\item The correction parameters depend on the structure of each of the RPC gaps. The values of $x_T$ and $x_P$ should be same for similar type of RPC gaps, but it is almost impossible to manufacture the inch-perfect replicas. Any gap with popped up button spacers(s) (`button pop-up' is discussed in Section \ref{sec:button}) will also reflect higher values of these two parameters. This causes the spread in the values of $x_T$ and $x_P$ which can bee seen in the Figure~\ref{fig:conclusion}(a) and \ref{fig:conclusion}(b), respectively.
+\item The minimised values of $x_T$ and $x_P$ for a gas gap are two independent parameters. As expected, it can be seen in the Figure~\ref{fig:conclusion}(c) that there is no correlation between these two parameters for eighty RPC gaps which were tested.
+\item The Figure~\ref{fig:conclusion}(d) shows the values of $\textrm{C}_{\textrm{Leak}}$ for eighty RPC gaps where the values of $x_T$ and $x_P$ are calculated explicitly for each RPC gaps. The Figure~\ref{fig:conclusion}(e) shows the same but with the mean values of $x_T$ and $x_P$ obtained from \ref{fig:conclusion}(a) and \ref{fig:conclusion}(b), respectively.
+\item Figure~\ref{fig:conclusion}(f) shows correlation between $\textrm{C}_{\textrm{Leak}}$ obtained by calculated $x_T$ and $x_P$ values explicitly for each chamber (shown in the Figure~\ref{fig:conclusion}(d)) and by mean $x_T$ and $x_P$ values (shown in the Figure~\ref{fig:conclusion}(e)). The nature of correlation is direct. So, mean values of $x_T$ and $x_P$ can also be used for a quick calculation saving CPU time.
 \end{itemize}
+
+\subsection{Conclusion}
+The method outlined above can give a quantitative estimation of the leak of an RPC with higher precision and in much less time compared to what may be obtained using conventional manometer. This method can be used for any kind of sealed chambers other than RPC where the structure of the chamber is prone to deform due to variation in ambient pressure and temperature. As discussed in the reference \cite{Mondal_2016}, it is possible to eliminate the effect caused by ambient temperature by the use of a enclosure where the temperature is controlled precisely in case of abrupt and/or irregular changes in ambient temperature, causing difficulties in the calculation of volume correction factors. It should be noted that the minimal time required for a test will depend on the leakage. If the leak rate is very small then more time is needed, but most of the gaps were able to test within 7-8 hours with a accuracy of $\sim 2\times 10^{-3}$\,ml\,hour$^{-1}$\,mmWC$^{-1}$. Currently, a gas gap is considered as usable if its $\textrm{C}_{\textrm{Leak}}$ value is greater than $-0.02$\,ml\,hour$^{-1}$\,mmWC$^{-1}$. If the CLS is operated at an excess pressure of 10\,mmWC above atmospheric pressure, the total leakage from ICAL detector will be approximately 6\,litres/hour during its active operation.
+
+\section{Chapter Summary}
