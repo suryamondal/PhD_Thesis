@@ -28,50 +28,54 @@
 
 \import{./chapters/}{recommendations.tex}
 
-\newpage
-\vspace*{\fill}{\centering This page is intentionally left blank.\par}\vspace*{\fill}
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+%% \newpage
+%% \vspace*{\fill}{\centering This page is intentionally left blank.\par}\vspace*{\fill}
 
 \import{./chapters/}{statement.tex}
 
-\newpage
-\vspace*{\fill}{\centering This page is intentionally left blank.\par}\vspace*{\fill}
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+%% \newpage
+%% \vspace*{\fill}{\centering This page is intentionally left blank.\par}\vspace*{\fill}
 
 \import{./chapters/}{declaration.tex}
 
-\newpage
-\vspace*{\fill}{\centering This page is intentionally left blank.\par}\vspace*{\fill}
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+%% \newpage
+%% \vspace*{\fill}{\centering This page is intentionally left blank.\par}\vspace*{\fill}
 
-\newpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+%% \newpage
 
 \import{./chapters/}{listofpublications.tex}
 
-\newpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+%% \newpage
 %% \vspace*{\fill}{\centering This page is intentionally left blank.\par}\vspace*{\fill}
 
 \import{./chapters/}{Acknowledgements.tex}
 
-\newpage
-\vspace*{\fill}{\centering This page is intentionally left blank.\par}\vspace*{\fill}
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+%% \newpage
+%% \vspace*{\fill}{\centering This page is intentionally left blank.\par}\vspace*{\fill}
 
-\newpage
+%% \newpage
 
 \normalsize
 
 \tableofcontents
 
-\newpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}
 
 \addcontentsline{toc}{chapter}{List of Tables}
 \listoftables
 
-\newpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}
 
 \addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
 
-\cleardoublepage
-
-\newpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}
 
 \fancyhead[LO]{Synopsis}
 \fancyhead[RE]{Synopsis}
@@ -81,9 +85,8 @@
 
 \import{./chapters/}{surya_synopsis.tex}
 
-\cleardoublepage
+\clearpage{\thispagestyle{empty}\cleardoublepage}
 
-\newpage
 \fancyhead[LO]{\leftmark}
 \fancyhead[RE]{\rightmark}
 \fancyhead[LE,RO]{\thepage}
@@ -91,11 +94,14 @@
 \normalsize
 
 \import{./chapters/}{chapter01_introduction.tex}
-\cleardoublepage
+
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+
 \import{./chapters/}{chapter02_leaktest.tex}
 
 
-\newpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+
 \addcontentsline{toc}{chapter}{References}
 
 %% \bibliographystyle{unsrt85}
