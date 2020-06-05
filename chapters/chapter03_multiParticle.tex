@@ -364,8 +364,8 @@ to produce final 3-dimensional track(s). Any ghost tracks formed
 while combining are discarded by using the timing information recorded
 for each strip. The events of interest for this analysis are the
 events with more than one reconstructed 3-dimensional track.
-The distribution of the time separation between each pair of tracks
-for both the simulation and data are shown in the
+The distribution of the time separation between each pair of
+reconstructed tracks for both the simulation and data are shown in the
 Figure~\ref{fig:time_sep}(a).
 \begin{figure}[h]
   \includegraphics[width=1.0\linewidth]{time_diff_compare_all.pdf} 
@@ -380,3 +380,42 @@ originating in the different cosmic showers is the cause for these
 events. The random coincidence of particles from different cosmic
 showers are absent in the simulation as only one shower is simulated
 at a time in the CORSIKA.
+
+In the simulation, it is observed that the particles originating
+from the same shower are detected in the RPC stack as parallel tracks.
+This can be verified by calculating the skewed angle between
+the two tracks. The skewed angle between two parallel tracks is
+ideally supposed to be zero, but due to the finite size of the strip
+width and multiple scatterings, it has finite width and tails.
+The distribution of the skewed angle between each pair of tracks
+for both simulation and data is shown in the
+Figure~\ref{fig:skewed_angle}(a).
+\begin{figure}[h]
+  \includegraphics[width=1.0\linewidth]{skewed_compare_reso_2plot_full.pdf}
+  \caption{(a) Skewed angle between two tracks originating
+    outside of the detector, (b) Skewed angle difference
+    between generated and reconstructed tracks fitted with
+    triple-gaussian function.}
+  \label{fig:skewed_angle}
+\end{figure}
+In order to understand the application of the skewed angle, events
+with multiple particles are simulated in the GEANT4. The distribution
+of the sine of the difference of the skewed angle between
+the generated particles and the skewed angle between
+the reconstructed tracks are shown in the
+Figure~\ref{fig:skewed_angle}(b). This distribution is fitted with
+a triple-Gaussian function. The three components of these angular
+resolutions represent the cases, which are due to no multiple
+scattering, one track has large multiple scattering and both
+have large multiple scattering.
+
+Based on these observations, the tracks with a skewed angle less than
+$\sim 2.5^{\circ}$ are considered as parallel to each other.
+Thus, in the current study, only the parallel tracks which are
+satisfying the skewed angle cut are considered to be generated
+from the particles originating from the same cosmic ray shower.
+The time difference between a pair of tracks for both simulated
+and observed data after the criteria of parallel track selection
+are shown in the Figure~\ref{fig:time_sep}(b). It can be observed
+that the events from the random coincidences disappear in the data
+after rejecting the events with non-parallel tracks.
