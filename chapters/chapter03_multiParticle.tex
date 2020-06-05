@@ -280,3 +280,71 @@ the worse. A layer which has more than 15 strip hits and/or more
 than 10 clusters is tagged as `noisy layer' and not considered
 in the track reconstruction. An event which has more than 3 noisy
 layers is considered as `noisy event' and discarded.
+
+In the first step of track reconstruction, the clusters associated
+with different tracks are found and grouped using the method of Hough
+Transformation\cite{hought}. The equation of the straight line,
+used to find the association between the hits, is given as,
+\begin{equation}
+  r=z\cos\theta+x\left(/y\right)\sin\theta. \label{eq:hough}
+\end{equation}
+The \mbox{$r$-$\theta$} plane (also called as Hough Space) is
+populated using the concept of Cellular Automaton\cite{cellular}.
+For a sample event shown in the Figure~\ref{fig:houghPl}(a),
+the populated \mbox{$r$-$\theta$} plane is presented in the
+Figure~\ref{fig:houghPl}(b).
+\begin{figure}[h]
+  \includegraphics[width=1.0\linewidth]{hough_Plane.pdf} 
+  \caption{(a) Projection of an event in the detector and
+    (b) populated $r$-$\theta$~plane using this event.}
+  \label{fig:houghPl}
+\end{figure}
+The advantage of using Cellular Automaton technique is the significant
+reduction of computation time to find a trajectory in the event.
+This method can detect all the tracks avoiding the noise hits as
+shown in Figure~\ref{fig:houghPl}(a).
+
+The tracks are identified using the Hough Transformation are then
+fitted by a straight line given by the equation,
+\begin{equation}
+  x\left(/y\right)=mz+c \label{eq:plain}
+\end{equation}
+where $m$ and $c$ are the slope and the intersect, respectively.
+The number of detector layers in the fit and $\chi^{2}$/ndf of
+the fit are shown in the Figure~\ref{fig:chi2ndf}(a) and
+\ref{fig:chi2ndf}(b) respectively.
+\begin{figure}[h]
+  \includegraphics[width=1.0\linewidth]{chi2ndf_compare_all.pdf} 
+  \caption{(a) Number of hit layer and
+    (b) $\chi^2$/ndf of straight line fit.}
+  \label{fig:chi2ndf}
+\end{figure}
+A track is considered as properly reconstructed if the $\chi^{2}$/ndf
+is less than 10 and there are more than 4 layers in the track.
+The reconstruction efficiency is defined as the ratio of the number
+of events with at-least one reconstructed track to the total number
+of triggered events. The reconstruction efficiency as a function of 
+time is shown in the Figure~\ref{fig:stackineffi}.
+\begin{figure}[h]
+  \includegraphics[width=1.0\linewidth]{stack_ineffi_1.pdf} 
+  \caption{Variation of reconstruction efficiency of the detector
+    with time.}
+  \label{fig:stackineffi}
+\end{figure}
+It can be observed that the reconstruction efficiency varies
+periodically with time which is correlated to the variation
+of the ambient pressure and temperature. But this periodic change in 
+the reconstruction efficiency does not affect the relative ratio of
+the multiple track events. The pure multiple track events are
+$\sim$0.01\% of triggered events. Out of the total triggered events,
+also 6--7\,\% of events are due to noises and hadronic showers
+initiated at the roof.
+An extreme shower event (which can also be due to the noise) shown
+in the Figure~\ref{fig:eshower} can also imitate a multi-track event.
+\begin{figure}[h]
+\includegraphics[width=1.0\linewidth]{Multi_Event_20170823_102605_3088_Shower_1.pdf} 
+ \caption{Example of an extreme shower event.}
+ \label{fig:eshower}
+\end{figure}
+Any such ambiguous events are rejected by the selection criteria
+used in the analysis.
