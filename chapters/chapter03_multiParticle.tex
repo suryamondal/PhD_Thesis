@@ -347,4 +347,36 @@ in the Figure~\ref{fig:eshower} can also imitate a multi-track event.
  \label{fig:eshower}
 \end{figure}
 Any such ambiguous events are rejected by the selection criteria
-used in the analysis.
+used in the analysis discussed in the following.
+
+The zenith and azimuthal angle distributions of the reconstructed
+tracks are presented in the Figure \ref{fig:thetaphi}(a) and
+\ref{fig:thetaphi}(b), respectively.
+\begin{figure}[h]
+  \includegraphics[width=1.0\linewidth]{thetaphi_compare_all.pdf} 
+  \caption{(a) Zenith and (b) Azimuth Angle of cosmic rays
+    reaching the detector 
+stack.}
+  \label{fig:thetaphi}
+\end{figure}
+The projections from both the X--Z and Y--Z planes are combined
+to produce final 3-dimensional track(s). Any ghost tracks formed
+while combining are discarded by using the timing information recorded
+for each strip. The events of interest for this analysis are the
+events with more than one reconstructed 3-dimensional track.
+The distribution of the time separation between each pair of tracks
+for both the simulation and data are shown in the
+Figure~\ref{fig:time_sep}(a).
+\begin{figure}[h]
+  \includegraphics[width=1.0\linewidth]{time_diff_compare_all.pdf} 
+  \caption{Time separation of two tracks for (a) all events and
+    (b) for events with only parallel tracks.}
+  \label{fig:time_sep}
+\end{figure}
+In the case of data, it can be observed that there is a significant
+number of events where multiple particles are reaching the detector
+with large relative time delay. The random coincidence of particles
+originating in the different cosmic showers is the cause for these
+events. The random coincidence of particles from different cosmic
+showers are absent in the simulation as only one shower is simulated
+at a time in the CORSIKA.
