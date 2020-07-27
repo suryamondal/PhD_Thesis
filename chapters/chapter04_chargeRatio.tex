@@ -96,7 +96,8 @@ the 1-Fold signals from top 4 layers as trigger.
 An event data typically contains strip hit and timing information
 of an event. The strip hit is basically one logic bit per strip
 indicating the signal in that strip is above the threshold value
-for that strip. The timing data is consists of 16 time signal for
+for that strip. The least count of each of the TDC is 0.1\,ns.
+The timing data is consists of 16 time signal for
 each layer where each multi-hit TDC channel records time signals
 coming from every alternating 8$^{th}$ strips on one side of the layer.
 The time signal of each hit is recorded for both the leading-edge and
@@ -126,6 +127,27 @@ signal between the neighbouring strips is the main reason for the
 observed strip multiplicity shown in the Figure~\ref{fig:layer2y}(c).
 In order to prepare the events for analysis, the consecutive strips
 which have recorded signal are clubbed together to form a cluster.
+The layers with no clusters either or both on X and Y sides are
+neglected during the track reconstruction.
+
+Position resolutions of the clusters with more than one strip hit
+are improved with the help of the Time-Over-Threashould (TOT). When a
+signal is shared between two or more strips, the TOT for the strips in
+the cluster depends on the actual position of the avalanche. Farther
+the position of the avalanche from a strip, smaller the value of TOT
+for that strip. So, observing the TOT of two strips (say, $T_{l}$
+and $T_{r}$) at the both sides of a cluster can give valuable
+information about the true position of the hit. The strip with the
+lowest TOT value (say, $T_{l}$) is found, and also the deviation of
+extrapolated position from the center of that strip (say, $\Delta x$).
+Profile histograms have been created with the share of the TOT
+$\left(=\frac{T_{l}}{T_{l}+T_{r}}\right)$ on the X-axis and the
+deviation of extrapolated position from the middle of that strip
+$\left(\Delta x\right)$ on the Y-axis. The profile histograms for 2
+and 3 multiplicities in a layer are shown in the
+Figure~\ref{fig:prof_tot}. With the help of these plots the position
+resolutions are improved by 20\,\%.
+
 %% During the study, the position resolution is calculated for different
 %% strip multiplicities of 1, 2, 3, and 4 and the values observed are
 %% $\sim$6\,mm, $\sim$8\,mm, $\sim$12\,mm and $\sim$22\,mm respectively.
@@ -133,8 +155,6 @@ which have recorded signal are clubbed together to form a cluster.
 %% larger than the pitch of the strip (3\,cm).
 %% In this study, the clusters of hits with more than 3 multiplicities are neglected as the position resolution for higher multiplicities is found to be the worse. A layer which has more than 15 strip hits and/or more than 10 clusters is tagged as `noisy layer' and not considered in the track reconstruction. An event which has more than 3 noisy layers is considered as `noisy event' and discarded.
 
-The layers with no clusters either or both on X and Y sides are
-neglected during the track reconstruction.
 Now, as it shown earlier, the strength of magnetic field in the
 X-direction is very small. So, almost no significant bending is
 observed in the Y-side of the track which makes the projection of
@@ -149,16 +169,60 @@ in the Y-direction, maximum bending of track is observed on the X-side.
 The clusters on the X-side is then fitted with a circle.
 The information of the fitted circle helps to reject the noise hits
 on the X-side as well.
-From the radius ($r$ in meter) of the fitted circle, the input
+Using the radius ($r$ in meter) of the fitted circle, the transverse
 momentum ($p_t$ in GeV) of the particle can be roughly estimated by
 the following equation,
 \begin{equation}
-  p_t=0.3Br \label{eq:pt_est}
+  p_{t}=0.3Br \label{eq:pt_est}
 \end{equation}
 where, $B$ is the average magnetic field in Tesla.
 The information of the fitted straight line on Y-side and the circle
 on the X-side further used to calculate the direction (zenith and
 azimuth) and the location of incidence of the particle roughly.
 
-The momentum, zenith, azimuth and location of incidence estimated
+The momentum vector and the location of incidence, estimated
 above are given as the input parameter to the track reconstruction.
+
+%% There following representations of the equation of motion of a charged
+%% particle moving through a magnetic field\cite{tracking} is choosen
+%% for this case,
+%% \begin{equation}
+%%   \frac{d^{2}\vec{r}}{ds^{2}} = \frac{q}{p} \left(\frac{d\vec{r}}{ds} \times \vec{B}\left(\vec{r}\right)\right). \label{eq:eqmotion}
+%% \end{equation}
+%% The electric component of the Lorentz Force is ignored as it is
+%% insignificant compared to the magnetic field. As the nature of the
+%% magnetic field is not homogeneous in the detector, it is not possible
+%% to find a solution analytically. It has to be solved numerically.
+%% In this study, the Runge-Kutta-Nyström method have been integrated
+%% in the track reconstruction to find the fit parameters\cite{tracking}.
+
+%% A time-step of 5\,mm is used to propagate the particle in the
+%% detector. At each step of the propagation the ionisation energy loss
+%% of the particle is calculated using the graph shown in the
+%% Figure~\ref{fig:eloss}.
+
+The particle is propagated in the medium of the detector by integrating
+the following equation numerically,
+%% \begin{equation}
+%%   \frac{\vec{F}}{q}=\vec{v}\times \vec{B} \label{eq:mom_force}
+%% \end{equation}
+\begin{equation}
+  \vec{\ddot{x}} = \left(\frac{q}{\gamma m_{\mu}}\right)\vec{\dot{x}}\times \vec{B}
+\end{equation}
+where, $\vec{\dot{x}}=\frac{\vec{p}}{\gamma m_{\mu}}$ and
+$\gamma=\sqrt{1+\left(\frac{p}{m_{\mu}c}\right)^{2}}$.
+
+A time-step of 10\,ps is used to propagate the particle in the
+detector. This is equivalent to a step-size of $\sim$3\,mm at speed
+of light. At each step of the propagation the ionisation energy
+loss of the particle is calculated using the graph shown in
+the Figure~\ref{fig:eloss}.
+
+The 5 parameters (3 momentum parameters and 2 position parameters) are
+properly estimated by minimising the least-squared distance
+($\chi^{2}$).
+The exhaustive grid-search method have been adopted to minimised the
+$\chi^{2}$ as the maximum number of data points available is only 10.
+Any other methods are are avoided as the chances of minimising the
+$\chi^{2}$ to a local minima is very high with smaller number of data
+points.
