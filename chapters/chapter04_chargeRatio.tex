@@ -178,20 +178,6 @@ azimuth) and the location of incidence of the particle roughly.
 The momentum vector and the location of incidence, estimated
 above are given as the input parameter to the track reconstruction.
 
-%% The particle is propagated in the medium of the detector by integrating
-%% the following equation numerically,
-%% \begin{equation}
-%%   \vec{\ddot{x}} = \left(\frac{q}{\gamma m_{\mu}}\right)\vec{\dot{x}}\times \vec{B}
-%% \end{equation}
-%% where, $\vec{\dot{x}}=\frac{\vec{p}}{\gamma m_{\mu}}$ and
-%% $\gamma=\sqrt{1+\left(\frac{p}{m_{\mu}c}\right)^{2}}$.
-
-%% A time-step of 10\,ps is used to propagate the particle in the
-%% detector. This is equivalent to a step-size of $\sim$3\,mm at speed
-%% of light. At each step of the propagation the ionisation energy
-%% loss of the particle is calculated using the graph shown in
-%% the Figure~\ref{fig:eloss}.
-
 The particle is propagated in the medium of the detector by integrating
 the equation of motion of the charged particle in a magnetic field
 numerically. The ionisation energy loss of the particle during the
@@ -223,14 +209,22 @@ The events with muons are simulated using GEANT4. The hits obtained
 at the GEANT4 simulation have been reconstructed using this method.
 The constructed momentum vs the generated momentum is shown in the
 Figure~\ref{fig:recomom}(a).
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.\linewidth]{20200807_ResponseMatrix_10Layer_All.pdf}
+  \caption{Generated momentum vs reconstructed momentum using
+    (a) Grid-Search, (b) Kalman-filter and (c) Explicit Track-Model.}
+  \label{fig:recomom}
+\end{figure}
 
-\subsection{Kalman Fit}
+
+\subsection{Kalman-Filter Fit}
 This reconstruction method is a Kalman-filter based algorithm, where
 every track is initiated by a state vector
 $X_{0}=\left(X,Y,dX/dZ,dY/dZ,q/p\right)$. The state vector contains
 the position of the starting hit $\left(X,Y,Z\right)$,
 the charge-weighted inverse momentum which is taken to be zero and
-the intitial direction (the slopes $dX/dZ$, $dY/dZ$) which is
+the initial direction (the slopes $dX/dZ$, $dY/dZ$) which is
 estimated from the first two layers. The initial state vector is then
 extrapolated to the next layer using an extrapolation algorithm based
 upon the equation of motion of a particle in a magnetic field. The
@@ -244,7 +238,7 @@ judged with the actual position of the hit in that layer, if any, and
 the process is iterated. The best fit track is obtained from the
 complete iteration. The $q/p$ determines the magnitude of the momentum
 along with the reconstructed direction using $dX/dZ$ and $dY/dZ$, which
-are the zenith and azimuthal angles respectively.
+are the zenith and azimuth angles respectively.
 
 The hits obtained from the GEANT4 simulation are reconstructed using
 this method. The constructed momentum vs the generated momentum is
@@ -252,18 +246,48 @@ shown in the Figure~\ref{fig:recomom}(b).
 
 \subsection{Explicit Track Model Fit}
 The momentum also reconstructed by the global track fitting by the
-least-squares method (LSM) \cite{explicit1}.
+least-squares method (LSM) \cite{explicit1}. The track model is the set
+of solutions of the equation of motion. The track model in the LSM is
+the linear expansion of the function $f\left(p\right)$, where $f$ is a
+deterministic function of the track parameter $p$. At a reference
+surface, $p$ is defined by the $\left(x,y\right)$ coordinates and the
+momentum vector. As per the first approximation,
+\begin{equation}
+  f\left(p\right) = f\left(p_{0}\right) + A\cdot \left(p-p_{0}\right) + O\cdot \left(p-p_{0}\right)^{2}+\cdots
+\end{equation}
+where $A=\frac{\partial f\left(p\right)}{\partial p}$ at $p=p_{0}$.
+
+In the track model, the weight-matrix $W$ is defined as the inverse of
+the covariance-matrix $V$. Since the measurement errors are
+uncorrelated, then
+\begin{equation}
+  \left(W\right)_{ij} = \frac{\delta_{ij}}{\sigma_{j}^{2}}
+\end{equation}
+where $\sigma_{j}$ is the standard deviation on the $j^{\text{th}}$
+measurement. But Generally, $W$ will have non-zero off-diagonal terms
+in the case of multiple scatterings. During the track reconstruction,
+the LSM tries to minimise the function,
+\begin{equation}
+  \chi^{2} = \left[f\left(p_{0}\right)+ A\cdot \left(p-p_{0}\right) - m\right]^{\mathrm{T}} \cdot W \cdot \left[f\left(p_{0}\right)+ A\cdot \left(p-p_{0}\right) - m\right]
+\end{equation}
+where, $m$ is the ``realisation'' of the measurements of track points
+$\left(x,y\right)$.
+
+The constructed momentum vs the generated momentum in the GEANT4 is
+shown in the Figure~\ref{fig:recomom}(c).
 
 
 \section{Charge Ratio Spectra of Cosmic Ray Muons}
 \label{section:multiresult}
 
-The exhaustive grid-search method have been adopted to minimised the
-$\chi^{2}$ as the maximum number of data points available is only 10.
-Any other methods are are avoided as the chances of minimising the
-$\chi^{2}$/ndf to a local minima is very high with smaller number of
-data points.
-
+It can be observed in the Figure~\ref{fig:recomom} that both the
+methods of Kalman-filter and Explicit Track Model present poorer
+momentum resolution along with saturation of the momentum beyond
+$\sim$2\,GeV. Apart from that, both the methods of Kalman-filter
+and Explicit Track Model has the limitations of identifying the
+charge of the particles. Taking all these in concern, the Grid-Search
+Method has been accepted to further study the charge ratio of the
+cosmic ray muons.
 
 The measured momentum spectra in the reconstruction process is biased
 because of the housing building covering the detector, limited
