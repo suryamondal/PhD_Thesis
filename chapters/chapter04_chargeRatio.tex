@@ -146,9 +146,12 @@ higher multiplicities is found to be the worse. A layer which has
 more than 15 strip hits and/or more than 10 clusters is tagged as
 `noisy layer' and not considered in the track reconstruction. An
 event which has more than 3 noisy layers is considered as
-`noisy event' and discarded.
+`noisy event' and discarded. The clusters present in an event then
+are reconstructed using three different reconstruction algorithm to
+find the momentum of muons.
 
-Now, as it shown earlier, the strength of magnetic field in the
+\subsection{Grid-Search Method}
+As it shown earlier, the strength of magnetic field in the
 X-direction is very small. So, almost no significant bending is
 observed in the Y-side of the track which makes the projection of
 the track on the Y-side to be fit with a straight line.
@@ -172,38 +175,38 @@ where, $B$ is the average magnetic field in Tesla.
 The information of the fitted straight line on Y-side and the circle
 on the X-side further used to calculate the direction (zenith and
 azimuth) and the location of incidence of the particle roughly.
-
 The momentum vector and the location of incidence, estimated
 above are given as the input parameter to the track reconstruction.
 
-The particle is propagated in the medium of the detector by integrating
-the following equation numerically,
-\begin{equation}
-  \vec{\ddot{x}} = \left(\frac{q}{\gamma m_{\mu}}\right)\vec{\dot{x}}\times \vec{B}
-\end{equation}
-where, $\vec{\dot{x}}=\frac{\vec{p}}{\gamma m_{\mu}}$ and
-$\gamma=\sqrt{1+\left(\frac{p}{m_{\mu}c}\right)^{2}}$.
+%% The particle is propagated in the medium of the detector by integrating
+%% the following equation numerically,
+%% \begin{equation}
+%%   \vec{\ddot{x}} = \left(\frac{q}{\gamma m_{\mu}}\right)\vec{\dot{x}}\times \vec{B}
+%% \end{equation}
+%% where, $\vec{\dot{x}}=\frac{\vec{p}}{\gamma m_{\mu}}$ and
+%% $\gamma=\sqrt{1+\left(\frac{p}{m_{\mu}c}\right)^{2}}$.
 
-A time-step of 10\,ps is used to propagate the particle in the
-detector. This is equivalent to a step-size of $\sim$3\,mm at speed
-of light. At each step of the propagation the ionisation energy
-loss of the particle is calculated using the graph shown in
-the Figure~\ref{fig:eloss}.
+%% A time-step of 10\,ps is used to propagate the particle in the
+%% detector. This is equivalent to a step-size of $\sim$3\,mm at speed
+%% of light. At each step of the propagation the ionisation energy
+%% loss of the particle is calculated using the graph shown in
+%% the Figure~\ref{fig:eloss}.
+
+The particle is propagated in the medium of the detector by integrating
+the equation of motion of the charged particle in a magnetic field
+numerically. The ionisation energy loss of the particle during the
+propagation of the particle is calculated using the graph shown in the
+Figure~\ref{fig:eloss}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\linewidth]{stopping_power_in_fe.pdf}
-  \caption{Ionisation energy loss of muons in Fe \cite{pdgspectra1}.}
+  \caption{Ionisation energy loss of muons in Fe \cite{pdgspectra1,bethe1}.}
   \label{fig:eloss}
 \end{figure}
 
 The 5 parameters (3 momentum parameters and 2 position parameters) are
 properly estimated by minimising the least-squared distance
 ($\chi^{2}$/ndf).
-The exhaustive grid-search method have been adopted to minimised the
-$\chi^{2}$ as the maximum number of data points available is only 10.
-Any other methods are are avoided as the chances of minimising the
-$\chi^{2}$/ndf to a local minima is very high with smaller number of
-data points.
 
 A few events with reconstructed track are displayed in the
 Figure~\ref{fig:eventdisplay}.
@@ -216,9 +219,52 @@ Figure~\ref{fig:eventdisplay}.
 A track is considered as properly reconstructed if the $\chi^{2}$/ndf
 is less than 5 (in strip unit) and there are more than 7 layers in
 the track.
+The events with muons are simulated using GEANT4. The hits obtained
+at the GEANT4 simulation have been reconstructed using this method.
+The constructed momentum vs the generated momentum is shown in the
+Figure~\ref{fig:recomom}(a).
+
+\subsection{Kalman Fit}
+This reconstruction method is a Kalman-filter based algorithm, where
+every track is initiated by a state vector
+$X_{0}=\left(X,Y,dX/dZ,dY/dZ,q/p\right)$. The state vector contains
+the position of the starting hit $\left(X,Y,Z\right)$,
+the charge-weighted inverse momentum which is taken to be zero and
+the intitial direction (the slopes $dX/dZ$, $dY/dZ$) which is
+estimated from the first two layers. The initial state vector is then
+extrapolated to the next layer using an extrapolation algorithm based
+upon the equation of motion of a particle in a magnetic field. The
+extrapolated state vector is then filtered and improved using the
+Kalman-filter based algorithm. In this algorithm, the corresponding
+error propagation is predicted by a propagation matrix \cite{kalman1}.
+The Kalman-filter also takes the process of the multiple-scattering
+as described in \cite{kalman2} and the energy loss in matter according
+to the Bethe formula \cite{bethe1}. The extrapolated point is then
+judged with the actual position of the hit in that layer, if any, and
+the process is iterated. The best fit track is obtained from the
+complete iteration. The $q/p$ determines the magnitude of the momentum
+along with the reconstructed direction using $dX/dZ$ and $dY/dZ$, which
+are the zenith and azimuthal angles respectively.
+
+The hits obtained from the GEANT4 simulation are reconstructed using
+this method. The constructed momentum vs the generated momentum is
+shown in the Figure~\ref{fig:recomom}(b).
+
+\subsection{Explicit Track Model Fit}
+The momentum also reconstructed by the global track fitting by the
+least-squares method (LSM) \cite{explicit1}.
+
 
 \section{Charge Ratio Spectra of Cosmic Ray Muons}
 \label{section:multiresult}
+
+The exhaustive grid-search method have been adopted to minimised the
+$\chi^{2}$ as the maximum number of data points available is only 10.
+Any other methods are are avoided as the chances of minimising the
+$\chi^{2}$/ndf to a local minima is very high with smaller number of
+data points.
+
+
 The measured momentum spectra in the reconstruction process is biased
 because of the housing building covering the detector, limited
 acceptance of the detector, resolution and other systematic effects
