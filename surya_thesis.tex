@@ -44,16 +44,23 @@
 %% \newpage
 %% \vspace*{\fill}{\centering This page is intentionally left blank.\par}\vspace*{\fill}
 
-\clearpage{\thispagestyle{empty}\cleardoublepage}
+%% \clearpage{\thispagestyle{empty}\cleardoublepage}
+%% \clearpage{\cleardoublepage}
 %% \newpage
 
 \import{./chapters/}{listofpublications.tex}
 
-\clearpage{\thispagestyle{empty}\cleardoublepage}
+%% \clearpage{\thispagestyle{empty}\cleardoublepage}
+\clearpage{\cleardoublepage}
+
 %% \newpage
 %% \vspace*{\fill}{\centering This page is intentionally left blank.\par}\vspace*{\fill}
 
 \import{./chapters/}{Acknowledgements.tex}
+
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+
+\import{./chapters/}{dedication.tex}
 
 \clearpage{\thispagestyle{empty}\cleardoublepage}
 %% \newpage
@@ -75,15 +82,26 @@
 \addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
 
-\clearpage{\thispagestyle{empty}\cleardoublepage}
+%% \clearpage{\thispagestyle{empty}\cleardoublepage}
+\clearpage{\cleardoublepage}
 
-\fancyhead[LO]{Synopsis}
-\fancyhead[RE]{Synopsis}
+%% \fancyhead[LO]{Synopsis}
+%% \fancyhead[RE]{Synopsis}
+%% \fancyhead[LE,RO]{\thepage}
+
+%% \addcontentsline{toc}{chapter}{Synopsis}
+
+%% \import{./chapters/}{surya_synopsis.tex}
+
+%% \clearpage{\thispagestyle{empty}\cleardoublepage}
+
+\fancyhead[LO]{Summary}
+\fancyhead[RE]{Summary}
 \fancyhead[LE,RO]{\thepage}
 
-\addcontentsline{toc}{chapter}{Synopsis}
+\addcontentsline{toc}{chapter}{Summary}
 
-\import{./chapters/}{surya_synopsis.tex}
+\import{./chapters/}{chapter00_smallsummary.tex}
 
 \clearpage{\thispagestyle{empty}\cleardoublepage}
 
@@ -111,7 +129,8 @@
 
 \import{./chapters/}{chapter05_summary.tex}
 
-\clearpage{\thispagestyle{empty}\cleardoublepage}
+%% \clearpage{\thispagestyle{empty}\cleardoublepage}
+\clearpage{\cleardoublepage}
 
 \addcontentsline{toc}{chapter}{References}
 
