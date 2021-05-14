@@ -185,7 +185,7 @@ Pi Unit. One such setup is shown in Figure~\ref{fig:leakwifi}.
   \centering
   \includegraphics[width=0.99\textwidth]{leaktest_setup_wifi_all.png}
   \caption{Schematics of the WiFi-based leak test setup and one of the
-    test-module (in the inset).}
+    test-modules (in the inset).}
   \label{fig:leakwifi}
 \end{figure}
 This setup requires an operational WiFi network at the premises to send the
@@ -290,7 +290,7 @@ of the amount of gas within the gap with respect to time.
 The instantaneous leak rate of a gap can be quantified as the slope
 of this plot at any particular instant.
 
-To estimate the absolute leak rate, the Poiseuille's equation for compressible
+To estimate the absolute leak rate, Poiseuille's equation for compressible
 fluids\cite{poiseuille} is used. The Poiseuille's equation of Leak Rate at time
 $t$ for compressible fluids is given in the equation \ref{eq:poiseuille},
 \begin{equation}
@@ -345,7 +345,7 @@ Now, in order to calculate the $n_{\textrm{rpc}}$ for the test period using the
 equation~\ref{eq:ct}, it is required to find the suitable values for the
 correction factor, $x_P$ and $x_T$. The value of these correction factors are
 found (or minimised) against the plot in the Figure~\ref{fig:preQt}. The method
-to find the values is described bellow.
+to find the values is described below.
 \begin{enumerate}[a.]
 \item \label{itm:cor1} For a chosen combination of values of $x_T$ and $x_P$,
   $n_{\textrm{rpc}}$ is calculated using equation~\ref{eq:ct} and then is plotted
@@ -406,7 +406,7 @@ correction also can be observed in the plot of
 $\frac{\mathrm{d}n_{\textrm{rpc}}}{\mathrm{d}t}$ vs
 $\frac{P_{\textrm{rpc}}^{2}-P_{\textrm{atm}}^{2}}{2P_{\textrm{rpc}}}$ in the
 Figure~\ref{fig:qt} which follows a nice straight line as expected
-from the Poiseuille's equation.
+from Poiseuille's equation.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.99\textwidth]{Q_dP_57.png}
@@ -425,8 +425,8 @@ leakage of gas is from inside to outside, which again agrees with the
 value of the pressure difference. Now, if this RPC gap is kept under a
 constant pressure difference of 20\,mmWC, then it would leak a total
 of 1.442\,$m$mol or 32.3\,ml gas in 24\,hours. This RPC gap thus can
-be tagged as leaky.\footnote{The accepted value of the leak rate is
-  discussed in the section~\ref{sec:summary}.}
+be tagged as leaky.\footnote{The accepted absolute value of the leak rate is
+ $-0.02ml/hr/mmWC$ and detailed are given in the section~\ref{sec:summary}.}
 
 The Figure~\ref{fig:with1} and \ref{fig:qt1} show the test results for
 another RPC gap (namely, gap-2).
@@ -492,12 +492,12 @@ measurement of $V_{\textrm{rpc}}$ will directly propagate to the relative
 error in calculation of $\textrm{C}_{\textrm{Leak}}$.
 
 \subsection{Systematic Error}
-A well defined method should be able to reproduced the same result in a
-repreated test under different test condition.
+A well defined method should be able to reproduce the same result in a
+repeated test under different test conditions.
 The success of this procedure depends on the periodic changes of
 ambient pressure and temperature which are largly unpredictable.
 To estimate the systematic error in the estimation of
-$\textrm{C}_{\textrm{Leak}}$, one of the RPC gap is tested for 48 hours.
+$\textrm{C}_{\textrm{Leak}}$, one of the RPC gaps is tested for 48 hours.
 Several data samples of equal duration have been generated from this
 large data sample and `$\textrm{C}_{\textrm{Leak}}$'s are estimated in
 each case. The Figure~\ref{fig:systematic}(a) shows the distribution
@@ -512,7 +512,7 @@ duration of 25 hours.
   \label{fig:systematic}
 \end{figure}
 The relative width of $\textrm{C}_{\text{Leak}}$ for the different
-durations of time is presented in Figure~\ref{fig:systematic}(b),
+duration of time is presented in Figure~\ref{fig:systematic}(b),
 which is considered a systematic error of this measurement. For a
 longer duration it is about 3.1\%.
 As expected, it can be observed that by lengthening the test duration,
