@@ -3,11 +3,11 @@
   2\,m\,$\times$\,2\,m Resistive Plate Chamber Stack at IICHEP-Madurai}
 \label{chapter:multi}
 
-One of the main goals of the INO Project is to collaborate with Indian
-Industries in order to streamline the production and the procurement
-of various components as well as the RPC detectors. Transfer of
-technologies and experiences in between industries and research teams
-is the key aspect of this effort.
+One of the main notions of the INO Project is to collaborate with
+Indian Industries in order to streamline the production and the
+procurement of various components as well as the RPC detectors.
+Transfer of technologies and experiences in between industries and
+research teams is the key aspect of this effort.
 An experimental setup consisting of 12 layers of glass Resistive Plate
 Chambers (RPCs) of size 2\,m\,$\times$\,2\,m has been built at
 IICHEP-Madurai (\ang{9;56;14.5}\,N \ang{78;00;47.9}\,E, on the surface)
@@ -21,8 +21,8 @@ the earth. The measurement of the multiplicity of charged particles
 due to
 cosmic ray interactions are presented here. The results are compared
 with different hadronic models of the CORSIKA simulation. The data
-collected near the magnetic equator gives us vital information regarding
-the capabilities of the simulation packages. As the current
+collected near the magnetic equator gives us vital information
+regarding the capabilities of the simulation packages. As the current
 experimental setup is located within 81\,km from INO-Site and
   nearly at the same latitude, in depth
 analysis of this data also improves the prediction power of
@@ -30,14 +30,14 @@ the Monte-Carlo simulations of neutrino events for this project.
 
 \section{Cosmic showers at the earth surface}
 
-The upper atmosphere of the earth gets a large dosage of exposure of
+The upper atmosphere of the earth gets a large dose of exposure of
 high energy primary cosmic rays originating in outer space. These
 primary cosmic rays consist of mostly protons with a smaller fraction
 of higher \mbox{Z-Nuclei} elements\cite{cosmic1}. The angular
 distributions of the primary cosmic rays are more or less isotropic
-at the top of the atmosphere. The energy spectra of the primary
-cosmic rays follow the power-law spectrum, $dN/dE \propto E^{-\gamma}$,
-where power-law parameter, $\gamma \sim $ 2.7. The shower of secondary
+at the top of the atmosphere. The energy spectrum of the primary
+cosmic rays follows the power-law, $dN/dE \propto E^{-\gamma}$,
+where $\gamma \sim $ 2.7. The shower of secondary
 particles consisting mainly of
 \mbox{pions $\left(\pi^{\pm}/\pi^0\right)$} and
 \mbox{kaons $\left(K^{\pm}\right)$} which are produced due the
@@ -47,7 +47,7 @@ $\pi^0 \rightarrow \gamma+\gamma$ whereas the charged pions decay to
 muons and neutrinos via weak-interactions,
 $\pi^+ \rightarrow \mu^+ + \nu_{\mu}$ and
 $\pi^- \rightarrow \mu^- + \bar{\nu}_{\mu}$. The kaons also decay to
-muons, neutrinos and to pions in different branching fractions.
+muons, neutrinos and to pions following different branching fractions.
 Most of the pions and kaons decay in flight and do not reach the
 earth's surface.
  A small fraction of resultant muons decay into
@@ -69,7 +69,7 @@ interactions at high energy which is not accessible in the laboratory.
 
 The principal aim of this work is to observe the charged-particle
 multiplicity in the atmospheric muon data collected
-at IICHEP, Madurai and compared it with the air shower simulation.
+at IICHEP, Madurai and compare it with the air shower simulation.
 
 In this study, the detector setup has been described in
 the Section~\ref{sec:detectorA}. The Monte-Carlo simulation techniques
@@ -177,28 +177,30 @@ on the coincidence of pre-Triggered signals from layers 4, 5, 6 and 7
 within a coincidence window of 100\,ns. While the layers in the middle
 portion of the detector are used to form the trigger, the layers in
 both the top and bottom portions of the detector also contributes in
-forming an event, which in turns maximises the length of the track in
+forming an event, which in turn maximises the length of the track in
 the detector.
 %% The 1-Fold signals
 %% from layers 4, 5, 6 and 7 are used as trigger to record the cosmic
 %% events used in the present work.
 
-Although the coincidence window is 100\,ns, the signals for any other
-particles as well as noise in a time period of -230\,ns to 770\,ns
-after generation of the trigger are also may get recorded due to
-stretching of the hit signal and trigger latency. A generalised timing
-diagram of an event which includes the hits from two particles is
-shown in the Figure~\ref{fig:timingdiagram}.
+The stretched signals get latched for recording when the trigger
+reaches the the RPCDAQs. Ideally, the signals occuring only within the
+coincidence window should get latched. But for this setup, the signals
+for any other particles as well as noise occurred outside the
+coincidence window also may get recorded due to stretching of the hit
+signals and trigger latency. A generalised timing diagram of an event
+which includes the hits from two particles is shown in the
+Figure~\ref{fig:timingdiagram} to illustrate this.
 \begin{figure}[h]
   \includegraphics[width=1.0\linewidth]{TimingDiagram-TimeSimple.pdf} 
   \caption{Timing diagram of an event.}
   \label{fig:timingdiagram}
 \end{figure}
-If the particle which is generating trigger has passed through the
+If a particle, generating the trigger, has passed through the
 detector at time $t_{1}$, then all other signals within the period of
 $t_{1}$ to $t_{1}+770$\,ns also get recorded due to the trigger latency
 of 770\,ns. The signals generated within the time period
-$t_{1}-230$\,ns to $t_{1}$\ are also get recorded as well but only in
+$t_{1}-230$\,ns to $t_{1}$\ also get recorded as well but only in
 the following situations.
 \vspace*{-10pt}
 \begin{itemize} \itemsep -5pt
@@ -209,15 +211,9 @@ the following situations.
   as it occurred within the `dead-time' of the trigger system.
 \item \textbf{Case~3:} The hits generated by any of the particles in
   the event did not satisfy the trigger criteria individually.
-  The hits generated by the earlier particle satisfied the trigger
-  criteria partially (say, for layers 4 \& 5). The hits generated by
-  the later particle occurring within the trigger window of 100\,ns,
-  satisfied the rest of the trigger criteria (say, for layers 6 \& 7)
-  and generated the trigger.
+  But hits generated by both particles altogether satisfy the trigger
+  criteria.
 \end{itemize}
-\vspace*{-10pt}
-%% The number of coincidences for the case 2 and 3 are very less compared
-%% to the case 1.
 
 An event typically contains hit information (one logic bit per strip
 indicating the signal in that strip) for each strip and 16 time
@@ -228,14 +224,6 @@ records time signals coming from every alternating 8$^{th}$ strips
 recorded in the detector during the total observation period between
 August 23, 2017 to September 8, 2017 with a trigger rate of
 $\sim$230\,Hz are used for the analysis.
-%% An event typically contains hit information (one logic bit per strip
-%% indicating the signal in that strip) for each strip and 16 time
-%% signals for each layer; 8 for X-side and other 8 for Y-side.
-%% One TDC channel records time signals coming from every alternating
-%% 8$^{th}$ strips (S0 to S7).
-%% The cosmic events recorded in the detector for the total observation
-%% period between August 23, 2017 to September 8, 2017 with a trigger
-%% rate of $\sim$230\,Hz are used for the analysis.
 
 
 \section{Monte-Carlo Simulation} \label{sec:montecarlo}
@@ -292,7 +280,7 @@ simulation is shown in the Figure~\ref{fig:momin}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\linewidth]{corsika_secondary_energy.pdf} 
-  \caption{CORSIKA generated momentum of charged particles at
+  \caption{CORSIKA generated momentum of secondary particles at
     observation level.}
   \label{fig:momin}
 \end{figure}
@@ -329,12 +317,12 @@ like electromagnetic, ionisation, decay and hadronic interactions,
 which are available within the GEANT4 toolkit are considered in the
 simulation.
 
-The various detector's parameters (efficiency, noise, strip
+The various detector parameters (efficiency, noise, strip
 multiplicity and resolution) are calculated using the cosmic rays
 passing through the detector stack.
 The current setup is a tracker type detector consisting of 12 layers
 of RPCs. When one layer of the setup is studied for the detector
-parameters; the rest of the layers in the setup serve as the tracker
+parameters, the rest of the layers in the setup serve as the tracker
 for the passing particles. Since the layers forming the coincidence
 cannot be studied for the detector parameters, the data sets with two
 more different trigger combinations (using layers 1,2,3,4 and 7,8,9,10
@@ -398,15 +386,15 @@ is tagged as `noisy layer' and not considered in the track
 reconstruction. The first criterion has been chosen near the maximum
 number of possible hits if 4 tracks pass through a RPC.
 In fact, the maximum number of tracks reconstructed in an event is 4
-which is discussed in the Result section. The second criterion is set at
-the first criterion divided by the average strip multiplicity
+which is discussed in the Result section. The second criterion is set
+at the first criterion divided by the average strip multiplicity
 $\left(\sim 1.5\right)$ in the detector stack to reject noisy events
 passed through the first criterion.
 An event which has more than 3 noisy layers is considered as `noisy
-event' and discarded. This criterion is set at 3 layers which is 25\% of
-maximum layers available for the event reconstruction. This criterion has
-been set by balancing the performance of the reconstruction method
-and number of events lost due to this criterion.
+event' and discarded. This criterion is set at 3 layers which is 25\%
+of maximum layers available for the event reconstruction. This
+criterion has been set by considering the performance of the
+reconstruction method and number of events lost due to this criterion.
 
 In the first step of track reconstruction, the clusters associated
 with different tracks are found and grouped using the method of Hough
@@ -431,7 +419,7 @@ reduction of computation time to find a trajectory in the event.
 This method can detect all the tracks avoiding the noise hits as
 shown in Figure~\ref{fig:houghPl}(a).
 
-The tracks are identified using the Hough Transformation are then
+The tracks identified using the Hough Transformation are then
 fitted by a straight line given by the equation,
 \begin{equation}
   x\left(/y\right)=mz+c \label{eq:plain}
@@ -509,7 +497,7 @@ events. The random coincidence of particles from different cosmic
 showers are absent in the simulation as only one shower is simulated
 at a time in the CORSIKA.
 So the following procedure is adopted to reject the random
-coincidences from the events which have been initiated at the same
+coincidences from the events which have been initiated by the same
 showers.
 
 In the simulation, it is observed that the particles originating
@@ -518,7 +506,9 @@ tracks. This can be verified by calculating the skewed angle between
 the each pair of tracks reconstructed in an event. The value of
 skewed angle is ideally supposed to be zero in case of the parallel
 tracks, but due to the finite size of the strip width and multiple
-scattering it has finite width and tails. The distribution of the
+scattering the distribution of skewed angle has finite width and tail.
+%% it has finite width and tails. 
+The distribution of the
 skewed angle between the each pair of tracks reconstructed from
 both the simulation and data is shown in the
 Figure~\ref{fig:skewed_angle}(a).
@@ -549,7 +539,8 @@ resolutions ($\sigma_{0}$, $\sigma_{1}$, $\sigma_{2}$) represent the
 cases, where (0) no multiple scattering happened for the pair of
 tracks, (1) one of the tracks has gone through multiple scattering and
 (2) both the tracks have gone through multiple scatterings in the
-detector medium or in the roof of the housing building, respectively.
+detector medium or in the roof of the building where the detector is
+housed, respectively.
 
 Based on these observations, a pair of tracks with a skewed angle less
 than $2.5^{\circ} \left(\approx 3\sigma_{0}\right)$ are considered as
@@ -689,13 +680,14 @@ are in the range beyond the scope of the present collider experiments.
 The major problem of the EAS simulation programs is the extrapolation
 of the hadronic interactions in the high energy range which is not
 covered by the experimental data. The limitation of the experiments
-in measuring the hadronic interactions at this high energy is mainly due
-limitation of the design of high energy $p\bar{p}$-colliders
-\cite{corsika763}. In the present $p\bar{p}$- or $p\,p$-colliders, the forward
-direction is not accessible. The secondary particles which are of the
-higher importance in the development of EAS programs are undetected
-in the beam pipe of the colliders. The largest energy fraction of
-each $p\bar{p}$-collision is carried away by these particles.
+in measuring the hadronic interactions at this high energy is mainly
+due to the limitation of the design of high energy $p\bar{p}$-colliders
+\cite{corsika763}. In the present $p\bar{p}$- or $p\,p$-colliders, the
+forward direction is not accessible. The secondary particles which are
+of the higher importance in the development of EAS programs are
+undetected in the beam pipe of the colliders. The largest energy
+fraction of each $p\bar{p}$-collision is carried away by these
+particles.
 The maximum attainable energy in these colliders is much lower than
 those found in cosmic rays. Therefore, the extrapolations based on
 theoretical models are mainly used by all the EAS programs.
@@ -709,7 +701,7 @@ data \cite{corsika763}.
 \section{Chapter Summary}
 An experimental setup consisting of 12 layers of glass RPCs of the size
 of 2\,m\,$\times$\,2\,m has been built at IICHEP-Madurai. The cosmic
-ray data recorded by this detector setup is used to analysis the
+ray data recorded by this detector setup is used to analyse the
 secondary cosmic rays reaching the surface of the earth. In this
 current study, we probed the multiplicity of the particles passing
 through the detector. The recorded data is compared with the

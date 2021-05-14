@@ -6,12 +6,13 @@ The study of atmospheric muon charge ratio
 $\left(R_{\mu}=N_{\mu^{+}}/N_{\mu^{-}}\right)$
 is important to the measurement of the neutrino flux precisely,
 alongside the relevant information in the composition of the primary
-cosmic rays and the different mechanisms of matter particle interactions.
+cosmic rays and the different mechanisms of matter particle
+interactions.
 
-The shower of secondary particles contributed mainly of
+The shower of secondary particles consists mainly of
 \mbox{pions $\left(\pi^{\pm}, \pi^0\right)$} and
-\mbox{kaons $\left(K^{\pm}, K^0_S, K^0_L\right)$} which are produced due the
-interactions of primary cosmic rays consisting of mainly proton
+\mbox{kaons $\left(K^{\pm}, K^0_S, K^0_L\right)$} which are produced due
+the interactions of primary cosmic rays consisting of mainly proton
 and a small fraction of higher $Z$ atoms \cite{cosmic1,pdgspectra1}
 with atmospheric nuclei at the upper atmosphere (mostly at 15-20\,km
 altitude).
@@ -58,8 +59,9 @@ One of the main aspects of ICAL detector is to distinguish between
 the $\mu^{+}$ and $\mu^{-}$ passing through the magnetised iron
 medium, which is required in determining the mass-hierarchy of
 the neutrinos with low statistics cosmic neutrino events.
-  So before deploying the main ICAL, a few prototypes
-of the detector are planned to build in order to test various aspects.
+So before deploying the main ICAL, a few prototypes
+of the detector are planned to be build in order to test various
+aspects.
 As a part of the ICAL R\&D program, a magnetised detector (mini-ICAL)
 with 10 layers of RPCs has been built and operational at IICHEP,
 Madurai situated near the INO site. Being a scale-down model of the
@@ -70,8 +72,8 @@ field and to test the event reconstruction algorithms.
 The cosmic ray data collected by the
 detector setup is also used to calculate the charge ratio $(R)$
 of the number of $\mu^{+}$ to $\mu^{-}$ arriving at the Earth's surface.
-The testing of the INO-ICAL muon reconstruction algorithms is also another
-motivation behind this study.
+The testing of the INO-ICAL muon reconstruction algorithms is also
+another motivation behind this study.
 By comparing the result from cosmic ray data with extreme
 air shower (EAS) simulation, this study also signifies the ability of
 the magnet in identifying the charge of the particle.
@@ -117,7 +119,7 @@ The coils are hollow inside with the cross section of
 30\,mm\,$\times$\,30\,mm\,$\times$\,$\phi$17\,mm.
 The two sets of coils are electrically connected in series,
 and a low voltage power supply is used to supply 900\,Amp
-of trough via the coils. An uniform magnetic field of $\sim$1.5\,T
+of trough via the coils. A uniform magnetic field of $\sim$1.5\,T
 is obtained in the central region of the detector.
 %%  The magnetic field
 %% in the mini-ICAL is along the ($-$)Y-direction in the central region.
@@ -169,9 +171,9 @@ An event data typically contains strip hit and timing information
 of an event. The strip hit is basically one logic bit per strip
 indicating the signal in that strip is above the threshold value
 for that strip. The least count of each of the TDC is 0.1\,ns.
-The timing data is consists of 16 time signal for
+The timing data consist of 16 time signal for
 each layer where each multi-hit TDC channel records time signals
-coming from every alternating 8$^{th}$ strips on one side of the layer.
+coming from every alternate 8$^{th}$ strips on one side of the layer.
 The time signal of each hit is recorded for both the leading-edge and
 the trailing-edge of the induced signal pulse.
 
@@ -206,17 +208,14 @@ shown in the Figure~\ref{fig:miniICAL_view}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.99\linewidth]{mical_view.png}
-  \caption{Model of the miniICAL magnet system in GEANT4 Model.}
+  \caption{Model of the miniICAL magnet system in GEANT4.}
   \label{fig:miniICAL_view}
 \end{figure}
 In the detector simulation; the momentum value and the direction
 of the muons are randomly generated from the CORSIKA spectra.
-The detector's parameters are calculated using (efficiency, noise,
-strip multiplicity and resolution) which are calculated using the cosmic
-ray data without magnetic field in the detector.
-%% , the azimuth ($\phi$) generated
-%% uniformly and the zenith ($\theta$) generated using $\cos^{2} \theta$
-%% spectra
+The detector's parameters (efficiency, noise, strip multiplicity and
+resolution) are calculated using the cosmic ray data without magnetic
+field in the detector.
 
 Both the events from the observed cosmic ray data and the detector
 simulation are reconstructed using the track fit algorithm which is
@@ -301,19 +300,19 @@ Figure~\ref{fig:recomom}(a).
 
 \subsection{Grid-Search Method}
 The information from circle gives the rough estimate of the transverse
-momentum ($p_{T}$) component of the momentum is calculated using the
+momentum ($p_{t}$) component of the momentum is calculated using the
 radius of the circle. Combining the fit information from X-Z and Y-Z
-plane, the track parameters two position and three momentum components
-(such as $x,y,p_{x},p_{y},p_{z}$) are calculated. Whereas, the estimated
-track parameters from above information is can be well taken, if there
+plane, the track parameters i.e. two position and three momentum
+components (such as $x,y,p_{x},p_{y},p_{z}$) are calculated. Whereas, the estimated
+track parameters from above information can be well taken, if there
 is no energy loss of the particles in detector medium and uniformity
-of the magnetic field throughout the area. To get the right values of
+of the magnetic field throughout the area. To get the correct values of
 the track parameters, the energy loss of the material and the
 non-uniformity in the magnetic field has to be taken care in the track
 fitting.
 
 To serve the purpose, the rough track parameters estimated from the
-circle and straight line fit is fed as seed of the track
+circle and straight line fit is fed as seed for the track
 propagation, which is performed by solving the equation of motion of
 charged particle in a magnetic field.
 
@@ -329,9 +328,10 @@ derivative $d{\bf r}/ds$ becomes $d{\bf r}/vdt = {\bf v}/v = {\bf T}$.
 
 Analytical solution of the Eqn.~\ref{eqn:lorentzeqn} for a given
 non-homogeneous magnetic field is impossible. Thus numerical solutions
-are calculated. There are many numerical methods, among many one group of
-methods used in tracking is Runge-Kutta Method. For this purpose, the
-fourth order Runge-Kutta Nystrom \cite{lund2009track} method is adapted.
+are calculated. There are many numerical methods, among them one group
+of methods used in tracking is Runge-Kutta Method. For this purpose,
+the fourth order Runge-Kutta Nystrom \cite{lund2009track} method is
+adapted.
 
 The step size in the propagation is 3\,mm, which includes iron as well
 as other material. After propagation, the measurement vector
@@ -347,13 +347,13 @@ using this method. The constructed momentum vs the generated momentum
 is shown in the Figure~\ref{fig:recomom}(b).
 
 \subsection{Explicit Track Model Fit}
-The momentum also reconstructed by the global track fitting using the
-least-squares method (LSM) \cite{explicit1}. The track model is the set
-of solutions of the equation of motion. The track model in the LSM is
-the linear expansion of the function $f\left(p\right)$, where $f$ is a
-deterministic function of the track parameter $p$. At a reference
-surface, $p$ is defined by the $\left(x,y\right)$ coordinates and the
-momentum vector. As per the first approximation,
+The momentum was also reconstructed by the global track fitting using
+the least-squares method (LSM) \cite{explicit1}. The track model is
+the set of solutions of the equation of motion. The track model in the
+LSM is the linear expansion of the function $f\left(p\right)$, where
+$f$ is a deterministic function of the track parameter $p$. At a
+reference surface, $p$ is defined by the $\left(x,y\right)$
+coordinates and the momentum vector. As per the first approximation,
 \begin{equation}
   f\left(p\right) = f\left(p_{0}\right) + A\cdot \left(p-p_{0}\right) + \mathcal{O} \left(p-p_{0}\right)^{2}+\cdots
 \end{equation}
@@ -422,7 +422,7 @@ vector from previous measurements. The weight factors is calculated
 (for true state vector, $p$) from the minimisation of
 $$\chi^2  = (m_k - f(p))^T \,V^{-1}\, (m_k - f(p)) + (p - p_k^{k-1})^T \,(C^{k-1}_k)^{-1} \,(p - p_k^{k-1})$$
 
-which has the following matrix algebra for each steps
+which has the following matrix algebra for each step
 \begin{eqnarray*}
   V &=& (V_k + A_k \,C_k^{k-1} \,A_k^T) \\
   C^{k-1}_k &=& F_{k-1}\, C_{k-1}\, F^T_{k-1} + Q_{k-1} \\
@@ -501,7 +501,7 @@ saturation effects, which is really not a good resolution.
 
 Each model also has its limitation in the efficiency and the capacity of
 determining the charge of the particle. The efficiency is defined as
-the ratio between the number of particles reconstructed to the of
+the ratio between the number of particles reconstructed to that of
 particles generated provided the charge of the particles are identified
 properly. The efficiency of the fit methods are shown in the
 Figure~\ref{fig:miseffi}(a).
@@ -566,7 +566,7 @@ unfolding process, the following procedures have been adopted.
 \item The MPV and $\sigma$, found in the case of Grid Search method
   (shown in the Figure~\ref{fig:mpvsigma}), are used to smear
   the randomly generated momentum values. The generated and smeared
-  values of the momentum are the filled in a histogram to create
+  values of the momentum are then filled in a histogram to create
   the response matrix, which is shown in the
   Figure~\ref{fig:unfolditer}(a).
 \item The above step is then repeated again with different seed,
@@ -623,10 +623,10 @@ detectors.
   \label{fig:eng_mod}
 \end{figure}
 The Grid Search method is giving better results for a 10 layer setup, but it is taking too
-much time to simulate it. Also, is it expected that with larger his points, explicit
+much time to simulate it. Also, is it expected that with larger hit points, explicit
 track fit model will give better resolution. Thus to reduce the reconstruction time
 explicit track fit model is used to reconstruct muons at 20 layers Engineering module.
-A preliminary simulation is performed on this setup by assuming the
+A preliminary simulation is performed with this setup by assuming the
 position of the RPCs in the central region of the detector. The events
 with more than 14 layer of hits are reconstructed.
 The response matrix found from this simulation is shown in the
@@ -639,7 +639,7 @@ Figure~\ref{fig:eng_mod}.
   \label{fig:eng_mod}
 \end{figure}
 The efficiency of reconstruction and mis-identification of the charge
-of the particles are are shown in the Figure~\ref{fig:eng_mod_effi}.
+of the particles are shown in the Figure~\ref{fig:eng_mod_effi}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\linewidth]{GMA_effi_misId_20Layer_EM.pdf}
