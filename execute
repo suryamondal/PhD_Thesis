@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [[ $2 == '1' ]]
+then
+    rm outputDir/*.aux outputDir/*.log outputDir/*.out
+    pdflatex -output-directory=outputDir $1 2>/dev/null
+    bibtex outputDir/$1 2>/dev/null
+fi
+pdflatex -output-directory=outputDir $1 2>/dev/null
+pdflatex -output-directory=outputDir $1 2>/dev/null
+
+evince outputDir/$1.pdf & 2>/dev/null
+
+
+# cd responds/
+# tar -czvf 20210514_Surya_Thesis_Draft.tar.gz ../chapters/chapter00_smallsummary.tex ../chapters/chapter01_introduction.tex ../chapters/chapter02_leaktest.tex ../chapters/chapter03_multiParticle.tex ../chapters/chapter04_chargeRatio.tex ../chapters/chapter05_summary.tex ../outputDir/surya_thesis.pdf review_reply/ReviewerReply_Kuno_20210513.tex review_reply/ReviewerReply_Kuno_20210513.pdf review_reply/ReviewerReply_SupriyaDas_20210513.tex review_reply/ReviewerReply_SupriyaDas_20210513.pdf
