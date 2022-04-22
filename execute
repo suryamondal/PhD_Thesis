@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p outputDir
+
 if [[ $2 == '1' ]]
 then
     rm outputDir/*.aux outputDir/*.log outputDir/*.out
