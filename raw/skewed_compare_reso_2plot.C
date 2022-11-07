@@ -1,4 +1,4 @@
-void skewed_compare_reso_2plot_2()
+void skewed_compare_reso_2plot()
 {
 //=========Macro generated from canvas: c0/c0
 //=========  (Fri May 14 22:04:27 2021) by ROOT version 6.22/08
